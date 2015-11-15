@@ -1,0 +1,157 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta http-equiv="content-type" content="text/html" />
+	<meta name="author" content="admin" />
+
+	<title>Untitled 1</title>
+</head>
+
+<body>
+
+ 
+<style>
+ .b1{
+  border:1px solid #D3D3D3;
+  border-radius:6px;
+  box-sizing:border-box;
+  font-family:inherit;
+  font-size:11px;
+  padding:10px 8px;
+color:#7C7C7C;
+}
+.b2{
+
+  box-sizing:border-box;
+  margin-left: 190px;
+    font-family:inherit;
+  margin-top: -15px;
+  color:#7C7C7C;
+}
+ .b3{
+  border:1px solid #D3D3D3;
+  border-radius:6px;
+  box-sizing:border-box;
+  font-family:inherit;
+  font-size:15px;
+  padding:10px 8px;
+  background-color: #24B419;
+  color: white;
+width: 220px;
+}
+
+.b4 {
+  border:1px solid #D3D3D3;
+  border-radius:6px;
+  box-sizing:border-box;
+  font-family:inherit;
+  font-size:15px;
+  padding: 10px 10px 10px 10px ;
+color:#7C7C7C;
+width: 220px;
+height: 100px;
+}
+
+
+#mail {visibility: hidden;}
+#mail:checked ~ #popup form {visibility: visible;}
+#mail:checked + label {
+  position: fixed;
+  top: 0; left: 0; bottom: 0; right: 0;
+  z-index: 99;
+  background: #333333;
+  cursor: pointer;
+  opacity: 0.5;
+}
+#popup {
+  visibility: hidden;
+  position: fixed;
+  top: 0; left: 0; bottom: 0; right: 0;
+  z-index: 100;
+}
+#popup form {
+font-family: "Lucida Grande", Tahoma; 
+font-size: 11px;
+  position: absolute;
+  top: 50%; left: 50%;
+ -ms-transform: translate(-50%, -50%); -webkit-transform: translate(-50%, -50%); transform: translate(-50%, -50%);
+text-align: center;
+  font-size: 16px;
+  color:#3b5998;
+  background: #fff;
+  border-radius: 10px;
+  width: 240px;
+  padding: 10px 10px 10px 10px ;
+}
+#popup div:nth-of-type(1) {padding-top: 3%;}
+#popup div:nth-last-of-type(1) {padding: 1% 0 4%;}
+#popup div:after {
+  content: attr(data-title);
+  display: block;
+  font-size: 50%;
+  font-weight: normal;
+  text-shadow: none;
+}
+#popup input {font-size: 100%;}
+#popup [type='submit'] {cursor: pointer;}
+#popup label:hover {
+  color: #dbeaf9;
+  cursor: pointer;
+}
+</style>
+
+<input type="checkbox" id="mail"/><label for="mail" style="cursor: pointer;"><img src="callme.png" alt="Заказать звонок"></label> 
+
+<div id="popup">
+<form method="post" action="mail.php">
+<label for="mail" title="Отменить" class="b2">✕</label>
+<div style=" text-align: center; font-size: 18px; margin-top: -25px; color:#637bad;">Заказать звонок 
+</div>
+</br>
+<div data-title="" style=" clear:both; display:block; font-size:14px; color:#637bad;">
+<div style=""><input size="30.5" class="b1" type='text' name='name' required value='Имя'/
+onfocus="if (this.value=='Имя') this.value='' "
+onblur="if (this.value==''){this.value='Имя'}"
+>
+</div>
+</div>
+</br>
+<div style="margin-left:0px;">
+<input size="3" class="b1" type="kod" name='kod' required maxlength="11" value='Код*'"/
+onfocus="if (this.value=='Код*') this.value='' "
+onblur="if (this.value==''){this.value='Код*'}"
+>
+<input size="16" class="b1" type="tel" name='tel' required maxlength="11" value='Телефон*'"/
+onfocus="if (this.value=='Телефон*') this.value='' "
+onblur="if (this.value==''){this.value='Телефон*'}"
+>
+</div>
+<div>
+</br>
+<div data-title="" style=" clear:both; display:block; font-size:14px; color:#637bad;">
+<div style=""><input size="30.5" class="b1" type="vremya" name='vremya' required maxlength="11" value='Удобное время звонка'"/
+onfocus="if (this.value=='Удобное время звонка') this.value='' "
+onblur="if (this.value==''){this.value='Удобное время звонка'}" 
+>
+</div>
+</div>
+</br>
+<textarea class="b4" type="dopinfo" name='dopinfo'  cols="28" rows="10" aria-invalid="false"
+onfocus="if (this.value=='Доп. информация') this.value='' "
+onblur="if (this.value==''){this.value='Доп. информация'}" 
+>Доп. информация</textarea>
+</br>
+</br>
+</br>
+<div style=""><input class="b3" type='submit' value='Заказать'/></div>
+</form>
+</div>
+</div>
+
+
+
+
+
+
+</body>
+</html>

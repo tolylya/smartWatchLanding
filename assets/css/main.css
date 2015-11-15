@@ -1,0 +1,366 @@
+/*
+ * Author: Carlos Alvarez
+ * URL: http://alvarez.is
+ *
+ * Project Name: FLATTY - Free Bootstrap 3 Theme
+ * Version: 1.0
+ * URL: http://blacktie.co
+ */
+
+* {
+    font-family: 'Comfortaa', cursive!important;
+}
+
+body {
+    background-color: white;
+    /*font-family: 'Lato', sans-serif;*/
+    font-weight: 300;
+    font-size: 16px;
+    color: #555;
+    -webkit-font-smoothing: antialiased;
+    -webkit-overflow-scrolling: touch;
+}
+
+
+/* Titles */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    /*font-family: 'Lato', sans-serif;*/
+    font-weight: 300;
+    color: #333;
+}
+
+h1 {
+    font-size: 40px;
+}
+
+h3 {
+    color: #95a5a6;
+    font-weight: 400;
+}
+
+h4 {
+    color: #95a5a6;
+    font-weight: 400;
+    font-size: 20px;
+}
+
+
+/* Paragraph & Typographic */
+
+p {
+    line-height: 28px;
+    margin-bottom: 25px;
+    font-size: 16px;
+}
+
+.centered {
+    text-align: center;
+}
+
+
+/* Links */
+
+a {
+    color: #3498db;
+    word-wrap: break-word;
+    -webkit-transition: color 0.1s ease-in, background 0.1s ease-in;
+    -moz-transition: color 0.1s ease-in, background 0.1s ease-in;
+    -ms-transition: color 0.1s ease-in, background 0.1s ease-in;
+    -o-transition: color 0.1s ease-in, background 0.1s ease-in;
+    transition: color 0.1s ease-in, background 0.1s ease-in;
+}
+
+a:hover,
+a:focus {
+    color: #7b7b7b;
+    text-decoration: none;
+    outline: 0;
+}
+
+a:before,
+a:after {
+    -webkit-transition: color 0.1s ease-in, background 0.1s ease-in;
+    -moz-transition: color 0.1s ease-in, background 0.1s ease-in;
+    -ms-transition: color 0.1s ease-in, background 0.1s ease-in;
+    -o-transition: color 0.1s ease-in, background 0.1s ease-in;
+    transition: color 0.1s ease-in, background 0.1s ease-in;
+}
+
+hr {
+    display: block;
+    height: 1px;
+    border: 0;
+    border-top: 1px solid #ccc;
+    margin: 1em 0;
+    padding: 0;
+}
+
+.navbar-default {
+    background-color: #3498db;
+    border-color: transparent;
+}
+
+.navbar-default .navbar-brand {
+    color: white;
+}
+
+.navbar-default .navbar-nav > li > a {
+    color: white;
+}
+
+
+/* Helpers */
+
+.mt {
+    margin-top: 40px;
+    margin-bottom: 40px;
+}
+
+.form-control {
+    height: 42px;
+    font-size: 18px;
+    width: 280px;
+}
+
+i {
+    margin: 8px;
+    color: #3498db;
+}
+
+
+/* HeaderWrap */
+
+#headerwrap {
+    /* background: url(../img/bg01.jpg) no-repeat center top; */
+    background-color: #3498db;
+    margin-top: -20px;
+    background-attachment: relative;
+    background-position: center center;
+    min-height: 650px;
+    width: 100%;
+    -webkit-background-size: 100%;
+    -moz-background-size: 100%;
+    -o-background-size: 100%;
+    background-size: 100%;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+#headerwrap h1 {
+    /*margin-top: 60px;*/
+    margin-bottom: 15px;
+    color: white;
+    font-size: 45px;
+    font-weight: 300;
+    letter-spacing: 1px;
+}
+
+.b1 {
+    border: 1px solid #D3D3D3;
+    border-radius: 6px;
+    box-sizing: border-box;
+    font-family: inherit;
+    font-size: 11px;
+    padding: 10px 8px;
+    color: #7C7C7C;
+}
+
+.b2 {
+    box-sizing: border-box;
+    margin-left: 190px;
+    font-family: inherit;
+    margin-top: -15px;
+    color: #7C7C7C;
+}
+
+.b3 {
+    border: 1px solid #D3D3D3;
+    border-radius: 6px;
+    box-sizing: border-box;
+    font-family: inherit;
+    font-size: 15px;
+    padding: 10px 8px;
+    background-color: #24B419;
+    color: white;
+    width: 220px;
+}
+
+.b4 {
+    border: 1px solid #D3D3D3;
+    border-radius: 6px;
+    box-sizing: border-box;
+    font-family: inherit;
+    font-size: 15px;
+    padding: 10px 10px 10px 10px;
+    color: #7C7C7C;
+    width: 220px;
+    height: 100px;
+}
+
+#mail {
+    visibility: hidden;
+}
+
+#mail:checked ~ #popup form {
+    visibility: visible;
+}
+
+#mail:checked + label {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    z-index: 99;
+    background: #333333;
+    cursor: pointer;
+    opacity: 0.5;
+}
+
+#popup {
+    visibility: hidden;
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    z-index: 100;
+}
+
+#popup form {
+    /*font-fa*/
+    mily: "Lucida Grande", Tahoma;
+    font-size: 11px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -ms-transform: translate(-50%, -50%);
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    text-align: center;
+    font-size: 16px;
+    color: #3b5998;
+    background: #fff;
+    border-radius: 10px;
+    width: 240px;
+    padding: 10px 10px 10px 10px;
+}
+
+#popup div:nth-of-type(1) {
+    padding-top: 3%;
+}
+
+#popup div:nth-last-of-type(1) {
+    padding: 1% 0 4%;
+}
+
+#popup div:after {
+    content: attr(data-title);
+    display: block;
+    font-size: 50%;
+    font-weight: normal;
+    text-shadow: none;
+}
+
+#popup input {
+    font-size: 100%;
+}
+
+#popup [type='submit'] {
+    cursor: pointer;
+}
+
+#popup label:hover {
+    color: #dbeaf9;
+    cursor: pointer;
+}
+
+div.phone1 div a:hover {
+    color: #5e5e5e!important;
+}
+
+#discount {
+    color: rgba(255, 239, 0, 0.89);
+    font-size: 25px;
+    font-weight: 600;
+}
+
+#timer1 div {
+    text-align: left!important;
+}
+
+
+/*body, html {background:#444; text-align:center; padding:50px 0;}*/
+
+
+/* The CSS */
+
+select {
+    padding: 3px;
+    margin: 0;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+    -webkit-box-shadow: 0 3px 0 #ccc, 0 -1px #fff inset;
+    -moz-box-shadow: 0 3px 0 #ccc, 0 -1px #fff inset;
+    box-shadow: 0 3px 0 #ccc, 0 -1px #fff inset;
+    background: #f8f8f8;
+    color: #888;
+    border: none;
+    outline: none;
+    display: inline-block;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    cursor: pointer;
+}
+
+
+/* Targetting Webkit browsers only. FF will show the dropdown arrow with so much padding. */
+
+@media (max-width: 768px) {
+    #video1 {
+        width: 100%!important;
+    }
+}
+
+@media (min-width: 769px) {
+    #cost1 {
+        margin-top: 16%;
+    }
+    #headerwrap {
+        padding-top: 80px;
+    }
+    #video1 {
+        margin-top: 3%;
+    }
+}
+
+.newCost {
+    color: rgb(255, 216, 0);
+    font-weight: 900;
+    font-size: 22px;
+}
+
+.icoBorder {
+    border: 3px solid rgba(57, 165, 212, 0.31);
+    border-top-left-radius: 25px;
+    border-bottom-right-radius: 25px;
+    display: inline;
+}
+
+.topMar {
+    margin-top: 10px;
+}
+
+.topXsMar {
+    margin-top: 30px;
+}
