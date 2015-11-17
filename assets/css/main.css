@@ -364,3 +364,22 @@ select {
 .topXsMar {
     margin-top: 30px;
 }
+
+.botMar {
+    margin-bottom: 10px;
+}
+.botXsMar {
+    margin-bottom: 30px;
+}
+
+.tehnic {
+    color: #3b8f6c;
+    font-size: 19px;
+    font-weight: 800;
+}
+
+.deskTeh {
+    padding-bottom: 27px;
+    color: #10658a;
+    font-size: 20px;
+}
