@@ -383,3 +383,9 @@ select {
     color: #10658a;
     font-size: 20px;
 }
+.round {
+    border-radius: 100px;
+    width: 150px;
+    height:150px;
+    background-size: contain;
+   }
