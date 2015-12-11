@@ -1,20 +1,75 @@
 <?
-if($_POST['name']){ // заносим в массив значение полей, их может быть больше
-  $znach = array(
-    1 => $_POST['name'],
-    2 => $_POST['kod'],
-    3 => $_POST['tel'],
-    4 => $_POST['vremya'],
-    5=> $_POST['dopinfo'],
-  );
-  mail("tolyla220@gmail.com", "Заказ Звонка".$_SERVER['HTTP_REFERER'],  
-  $znach[1]." ". 
-  $znach[2]." ".
-  $znach[3]." ".
-  $znach[4]." ".
-  $znach[5]); // письмо на свой электронный ящик, измените на свой email
+function get_data($smtp_conn)
+{
+    $data="";
+    while($str = fgets($smtp_conn,515))
+    {
+        $data .= $str;
+        if(substr($str,3,1) == " ") { break; }
+    }
+    return $data;
 }
-Header("Refresh: 3; URL=".$_SERVER['HTTP_REFERER']); // спустя 3 секунд человек будет возвращён на предыдущий URL
+
+$header="Date: ".date("D, j M Y G:i:s")." +0700\r\n";
+$header.="From: =?UTF-8?Q?".str_replace("+","_",str_replace("%","=",urlencode('sdkwatch')))."?= <admin@sdkwatch.ru>\r\n";
+$header.="X-Mailer: The Bat! (v3.99.3) Professional\r\n";
+$header.="Reply-To: =?UTF-8?Q?".str_replace("+","_",str_replace("%","=",urlencode('sdkwatch')))."?= <admin@sdkwatch.ru>\r\n";
+$header.="X-Priority: 3 (Normal)\r\n";
+$header.="Message-ID: <172562218.".date("YmjHis")."@mail.ru>\r\n";
+$header.="To: =?UTF-8?Q?".str_replace("+","_",str_replace("%","=",urlencode('Анатолий')))."?= <tolylya220@gmail.com>\r\n";
+$header.="Subject: =?UTF-8?Q?".str_replace("+","_",str_replace("%","=",urlencode('Обратный звонок sdkwatch')))."?=\r\n";
+$header.="MIME-Version: 1.0\r\n";
+$header.="Content-Type: text/plain; charset=UTF-8\r\n";
+$header.="Content-Transfer-Encoding: 8bit\r\n";
+
+$znach = array(
+    1 => $_POST['name'],
+    2 => $_POST['tel']
+  );
+
+  $text = "Имя: ".$znach[1]." | Телефон: ". $znach[2];
+
+$smtp_conn = fsockopen("n2.hosting.energy", 25,$errno, $errstr, 10);
+if(!$smtp_conn) {print "соединение с серверов не прошло"; fclose($smtp_conn); exit;}
+$data = get_data($smtp_conn);
+fputs($smtp_conn,"EHLO vasya\r\n");
+$code = substr(get_data($smtp_conn),0,3);
+if($code != 250) {print "ошибка приветсвия EHLO"; fclose($smtp_conn); exit;}
+fputs($smtp_conn,"AUTH LOGIN\r\n");
+$code = substr(get_data($smtp_conn),0,3);
+if($code != 334) {print "сервер не разрешил начать авторизацию"; fclose($smtp_conn); exit;}
+
+fputs($smtp_conn,base64_encode("admin@sdkwatch.ru")."\r\n");
+$code = substr(get_data($smtp_conn),0,3);
+if($code != 334) {print "ошибка доступа к такому юзеру"; fclose($smtp_conn); exit;}
+
+fputs($smtp_conn,base64_encode("M5cCFp6E")."\r\n");
+$code = substr(get_data($smtp_conn),0,3);
+if($code != 235) {print "не правильный пароль"; fclose($smtp_conn); exit;}
+
+$size_msg=strlen($header."\r\n".$text);
+
+fputs($smtp_conn,"MAIL FROM:<admin@sdkwatch.ru> SIZE=".$size_msg."\r\n");
+$code = substr(get_data($smtp_conn),0,3);
+if($code != 250) {print "сервер отказал в команде MAIL FROM"; fclose($smtp_conn); exit;}
+
+fputs($smtp_conn,"RCPT TO:<tolylya220@gmail.com>\r\n");
+$code = substr(get_data($smtp_conn),0,3);
+if($code != 250 AND $code != 251) {print "Сервер не принял команду RCPT TO"; fclose($smtp_conn); exit;}
+
+fputs($smtp_conn,"DATA\r\n");
+$code = substr(get_data($smtp_conn),0,3);
+if($code != 354) {print "сервер не принял DATA"; fclose($smtp_conn); exit;}
+
+fputs($smtp_conn,$header."\r\n".$text."\r\n.\r\n");
+$code = substr(get_data($smtp_conn),0,3);
+if($code != 250) {print "ошибка отправки письма"; fclose($smtp_conn); exit;}
+
+fputs($smtp_conn,"QUIT\r\n");
+fclose($smtp_conn);
+
+Header("Refresh: 3; URL=".$_SERVER['HTTP_REFERER']);
+
 ?>
 
 <!DOCTYPE html>
