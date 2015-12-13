@@ -17,7 +17,7 @@ $header.="Reply-To: =?UTF-8?Q?".str_replace("+","_",str_replace("%","=",urlencod
 $header.="X-Priority: 3 (Normal)\r\n";
 $header.="Message-ID: <172562218.".date("YmjHis")."@mail.ru>\r\n";
 $header.="To: =?UTF-8?Q?".str_replace("+","_",str_replace("%","=",urlencode('Анатолий')))."?= <tolylya220@gmail.com>\r\n";
-$header.="Subject: =?UTF-8?Q?".str_replace("+","_",str_replace("%","=",urlencode('Обратный звонок sdkwatch')))."?=\r\n";
+$header.="Subject: =?UTF-8?Q?".str_replace("+","_",str_replace("%","=",urlencode('Заказ часов sdkwatch')))."?=\r\n";
 $header.="MIME-Version: 1.0\r\n";
 $header.="Content-Type: text/plain; charset=UTF-8\r\n";
 $header.="Content-Transfer-Encoding: 8bit\r\n";
@@ -26,8 +26,8 @@ $znach = array(
     1 => $_POST['name']
   );
 
-  $text = "Имя: ".$_POST['name']." | Телефон: ". $_POST['tel'];
-  
+$text = "Имя: ".$_POST['name']." | Телефон: ". $_POST['tel']." | Тип часов: ". $_POST['watch'];
+
 $smtp_conn = fsockopen("n2.hosting.energy", 25,$errno, $errstr, 10);
 if(!$smtp_conn) {print "соединение с серверов не прошло"; fclose($smtp_conn); exit;}
 $data = get_data($smtp_conn);
